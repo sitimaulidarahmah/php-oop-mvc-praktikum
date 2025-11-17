@@ -3,7 +3,7 @@ require_once 'Mahasiswa.php';
 
 // Membuat objek dengan constructor
 $mhs1 = new Mahasiswa("Siti Maulida Rahmah", nim: "2310010429");
-$mhs2 = new Mahasiswa("Mustikaning Handayani", nim:  "2310010489");
+$mhs2 = new Mahasiswa("Mustikaning Handayani", nim: "2310010489");
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -65,12 +65,28 @@ $mhs2 = new Mahasiswa("Mustikaning Handayani", nim:  "2310010489");
         <div class="output">
             <?= $mhs2->sayHello(); ?>
         </div>
-
-        <p class="mt-4">
-            <em>(Lihat file <strong>Mahasiswa.php</strong> untuk definisi class.)</em>
-        </p>
-
     </div>
+
+    
+        <div class="container">
+            <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
+
+            <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
+            <div class="output">
+                <!-- 4. Memanggil Metode Objek -->
+                <?php echo $mhs1->sayHello(); ?>
+            </div>
+
+            <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
+            <div class="output">
+                <!-- Memanggil Metode Objek Kedua -->
+                <?php echo  $mhs2->sayHello(); ?>
+            </div>
+
+            <p class="mt-4">
+                <em>(Lihat file <strong>Mahasiswa.php</strong> untuk definisi class.)</em>
+            </p>
+        </div>
 
 </body>
 

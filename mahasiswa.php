@@ -9,7 +9,7 @@ class Mahasiswa
         $this->nama = $nama;
         $this->nim = $nim;
     }
-    
+
     public function getNama(): string
     {
         return $this->nama;
@@ -26,5 +26,8 @@ class Mahasiswa
             "NIM saya adalah {$this->nim}. Selamat datang di dunia OOP!";
     }
 
-    
+    public function __destruct()
+    {
+        echo "--> Objek **{$this->nama}** telah dihancurkan (Destruktor berjalan).<br>";
+    }
 }
