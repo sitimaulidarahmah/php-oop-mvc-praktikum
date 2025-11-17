@@ -10,6 +10,19 @@ class Mahasiswa
         $this->nim = $nim;
     }
 
+    public function setNim($nim)
+    {
+        // Validasi Sederhana: NIM harus memiliki panjang 7
+        if (strlen($nim) === 7) {
+            $this->nim = $nim;
+            return true;
+        } else {
+            echo "<span style='color: red;'>[ERROR ENKAPSULASI] NIM '{$nim}' tidak valid (Harus 7
+digit). NIM tidak diubah.</span><br>";
+            return false;
+        }
+    }
+
     public function getNama(): string
     {
         return $this->nama;

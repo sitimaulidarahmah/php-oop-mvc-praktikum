@@ -4,6 +4,15 @@ require_once 'Mahasiswa.php';
 // Membuat objek dengan constructor
 $mhs1 = new Mahasiswa("Siti Maulida Rahmah", nim: "2310010429");
 $mhs2 = new Mahasiswa("Mustikaning Handayani", nim: "2310010489");
+//Demonstrasi Akses Data (Setter/Getter)
+
+// Mencoba mengubah NIM (Setter) - Sukses
+echo "<h3 style='color:#2980b9;'>--- DEMO SETTER (mhs1) ---</h3>";
+$mhs1->setNim("1234567"); // 7 digit - Sukses
+
+// Mencoba mengubah NIM (Setter) - Gagal (validasi di dalam setter menolak)
+$mhs1->setNim("1234567"); // 3 digit - Gagal
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -54,39 +63,68 @@ $mhs2 = new Mahasiswa("Mustikaning Handayani", nim: "2310010489");
     <div class="container">
         <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
 
-        <!-- Output untuk objek pertama -->
         <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
         <div class="output">
             <?= $mhs1->sayHello(); ?>
         </div>
 
-        <!-- Output untuk objek kedua -->
         <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
         <div class="output">
             <?= $mhs2->sayHello(); ?>
         </div>
+
+        <p><em>(Lihat `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
+                cara menggunakannya.)</em></p>
     </div>
 
-    
-        <div class="container">
-            <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
+    <div class="container">
+        <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
 
-            <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
-            <div class="output">
-                <!-- 4. Memanggil Metode Objek -->
-                <?php echo $mhs1->sayHello(); ?>
-            </div>
+        <h2>Objek Pertama: <?php echo $mhs1->getNama(); ?></h2>
+        <div class="output">
+            <!-- 4. Memanggil Metode Objek -->
+            <?php echo $mhs1->sayHello(); ?>
 
-            <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
-            <div class="output">
-                <!-- Memanggil Metode Objek Kedua -->
-                <?php echo  $mhs2->sayHello(); ?>
-            </div>
-
-            <p class="mt-4">
-                <em>(Lihat file <strong>Mahasiswa.php</strong> untuk definisi class.)</em>
-            </p>
         </div>
+
+        <h2>Objek Kedua: <?php echo $mhs2->getNama(); ?></h2>
+        <div class="output">
+            <!-- Memanggil Metode Objek Kedua -->
+            <?php echo $mhs2->sayHello(); ?>
+        </div>
+
+        <p>
+            <em>(Output konstruktor ada di atas hasil sapaan. Output destruktor akan muncul terakhir.)</em>
+        </p>
+    </div>
+
+    <div class="container">
+        <h1>Modul 3: Encapsulation (Pengecekan Data)</h1>
+
+        <h2>Objek Pertama: <?php echo $mhs1->getNama(); ?></h2>
+        <div class="output">
+            <!-- 4. Memanggil Metode Objek -->
+            <?php $mhs1->sayHello(); ?>
+            <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
+            #e67e22;"><?php echo $mhs1->getNim(); ?></span></p>
+        </div>
+
+        <h2>Objek Kedua: <?php echo $mhs2->getNama(); ?></h2>
+        <div class="output">
+            <!-- Memanggil Metode Objek Kedua -->
+            <?php $mhs2->sayHello(); ?>
+            <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
+            #e67e22;"><?php echo $mhs2->getNim(); ?></span></p>
+            <!-- <p style="color: red;">*Objek ini dibuat dengan NIM tidak valid, namun Setter
+                mencegahnya masuk ke properti.</p> -->
+        </div>
+
+        <p>
+            <em>(Coba hapus method **getNim()** dari kode dan akses NIM secara langsung: **$mhs1-
+                >nim**. Anda akan mendapatkan Fatal Error karena NIM bersifat private!)</em>
+        </p>
+
+    </div>
 
 </body>
 
