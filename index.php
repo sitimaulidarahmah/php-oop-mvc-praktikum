@@ -1,0 +1,77 @@
+<?php
+require_once 'Mahasiswa.php';
+
+// Membuat objek dengan constructor
+$mhs1 = new Mahasiswa("Siti Maulida Rahmah", nim: "2310010429");
+$mhs2 = new Mahasiswa("Mustikaning Handayani", nim:  "2310010489");
+?>
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modul 1: Dasar OOP</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+
+        .output {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
+
+        <!-- Output untuk objek pertama -->
+        <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
+        <div class="output">
+            <?= $mhs1->sayHello(); ?>
+        </div>
+
+        <!-- Output untuk objek kedua -->
+        <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
+        <div class="output">
+            <?= $mhs2->sayHello(); ?>
+        </div>
+
+        <p class="mt-4">
+            <em>(Lihat file <strong>Mahasiswa.php</strong> untuk definisi class.)</em>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
