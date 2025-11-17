@@ -1,25 +1,33 @@
 <?php
-require_once 'Mahasiswa.php';
+require_once 'mahasiswa.php';
 
 // Membuat objek dengan constructor
 $mhs1 = new Mahasiswa("Siti Maulida Rahmah", nim: "2310010429");
 $mhs2 = new Mahasiswa("Mustikaning Handayani", nim: "2310010489");
-//Demonstrasi Akses Data (Setter/Getter)
 
-// Mencoba mengubah NIM (Setter) - Sukses
+// Setter demo
 echo "<h3 style='color:#2980b9;'>--- DEMO SETTER (mhs1) ---</h3>";
-$mhs1->setNim("1234567"); // 7 digit - Sukses
+$mhs1->setNim("1234567");
 
-// Mencoba mengubah NIM (Setter) - Gagal (validasi di dalam setter menolak)
-$mhs1->setNim("1234567"); // 3 digit - Gagal
+// Setter gagal
+$mhs2->setNim("1234567");
 
+// Include untuk modul 4
+require_once 'User.php';
+require_once 'Admin.php';
+
+// Instansiasi User & Admin
+$user1 = new User("Siti Maulida Rahmah");
+$admin1 = new Admin("Mustikaning Handayani");
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <title>Modul 1: Dasar OOP</title>
+    <title>Modul 1-4: OOP PHP</title>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -29,7 +37,7 @@ $mhs1->setNim("1234567"); // 3 digit - Gagal
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 20px auto;
             background-color: white;
             padding: 30px;
@@ -55,11 +63,23 @@ $mhs1->setNim("1234567"); // 3 digit - Gagal
             margin-bottom: 20px;
             border-radius: 6px;
         }
+
+        .role-user {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .role-admin {
+            color: #e74c3c;
+            font-weight: bold;
+        }
     </style>
+
 </head>
 
 <body>
 
+    <!-- MODUL 1 -->
     <div class="container">
         <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
 
@@ -72,58 +92,72 @@ $mhs1->setNim("1234567"); // 3 digit - Gagal
         <div class="output">
             <?= $mhs2->sayHello(); ?>
         </div>
-
-        <p><em>(Lihat `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
-                cara menggunakannya.)</em></p>
     </div>
 
+    <!-- MODUL 2 -->
     <div class="container">
         <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
 
-        <h2>Objek Pertama: <?php echo $mhs1->getNama(); ?></h2>
+        <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
         <div class="output">
-            <!-- 4. Memanggil Metode Objek -->
-            <?php echo $mhs1->sayHello(); ?>
-
+            <?= $mhs1->sayHello(); ?>
         </div>
 
-        <h2>Objek Kedua: <?php echo $mhs2->getNama(); ?></h2>
+        <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
         <div class="output">
-            <!-- Memanggil Metode Objek Kedua -->
-            <?php echo $mhs2->sayHello(); ?>
+            <?= $mhs2->sayHello(); ?>
         </div>
-
-        <p>
-            <em>(Output konstruktor ada di atas hasil sapaan. Output destruktor akan muncul terakhir.)</em>
-        </p>
     </div>
 
+    <!-- MODUL 3 -->
     <div class="container">
         <h1>Modul 3: Encapsulation (Pengecekan Data)</h1>
 
-        <h2>Objek Pertama: <?php echo $mhs1->getNama(); ?></h2>
+        <h2>Objek Pertama: <?= $mhs1->getNama(); ?></h2>
         <div class="output">
-            <!-- 4. Memanggil Metode Objek -->
-            <?php $mhs1->sayHello(); ?>
-            <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
-            #e67e22;"><?php echo $mhs1->getNim(); ?></span></p>
+            <?= $mhs1->sayHello(); ?>
+            <p><strong>NIM Saat Ini:</strong>
+                <span style="font-weight: bold; color:#e67e22;">
+                    <?= $mhs1->getNim(); ?>
+                </span>
+            </p>
         </div>
 
-        <h2>Objek Kedua: <?php echo $mhs2->getNama(); ?></h2>
+        <h2>Objek Kedua: <?= $mhs2->getNama(); ?></h2>
         <div class="output">
-            <!-- Memanggil Metode Objek Kedua -->
-            <?php $mhs2->sayHello(); ?>
-            <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
-            #e67e22;"><?php echo $mhs2->getNim(); ?></span></p>
-            <!-- <p style="color: red;">*Objek ini dibuat dengan NIM tidak valid, namun Setter
-                mencegahnya masuk ke properti.</p> -->
+            <?= $mhs2->sayHello(); ?>
+            <p><strong>NIM Saat Ini:</strong>
+                <span style="font-weight: bold; color:#e67e22;">
+                    <?= $mhs2->getNim(); ?>
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ======================= -->
+    <!--        MODUL 4          -->
+    <!-- ======================= -->
+
+    <div class="container">
+        <h1>Modul 4: Inheritance (Pewarisan User dan Admin)</h1>
+
+        <h2>Pengguna Biasa (Kelas User)</h2>
+        <div class="output">
+            <p style="color: #27ae60; font-size: 1.1em;"><?php echo $user1->salam(); ?></p>
+            <p>Peran yang diwarisi: <span class="role-user"><?php echo $user1->getRole(); ?></span></p>
+        </div>
+
+        <h2>Administrator (Kelas Admin)</h2>
+        <div class="output">
+            <p style="color: #e74c3c; font-size: 1.1em;"><?php echo $admin1->salam(); ?></p>
+            <p><?php echo $admin1->kelolaSistem(); ?></p>
+            <p>Peran yang diwarisi: <span class="role-admin"><?php echo $admin1->getRole(); ?></span></p>
         </div>
 
         <p>
-            <em>(Coba hapus method **getNim()** dari kode dan akses NIM secara langsung: **$mhs1-
-                >nim**. Anda akan mendapatkan Fatal Error karena NIM bersifat private!)</em>
+            <em>(Perhatikan bahwa objek Admin memiliki metode <strong>salam()</strong> yang berbeda dan
+                masih mewarisi metode <strong>getRole()</strong> dari kelas User.)</em>
         </p>
-
     </div>
 
 </body>
