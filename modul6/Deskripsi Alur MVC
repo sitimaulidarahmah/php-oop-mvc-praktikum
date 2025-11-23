@@ -1,0 +1,26 @@
+Deskripsi Alur MVC
+
+Berikut adalah deskripsi alur berdasarkan pemahaman terhadap konsep Model-View-Controller:
+
+1. Client Request:
+	Pengguna mengetik URL /mahasiswa/index melalui browser. Permintaan tersebut kemudian dikirimkan menuju server untuk diproses.
+
+2. Front Controller / Router:
+	Permintaan yang masuk pertama kali diterima oleh Front Controller, yaitu file public/index.php.
+	Front Controller kemudian meneruskan data URL ke Router (core/App.php) untuk dianalisis. Router memecah URL tersebut menjadi beberapa bagian 	sehingga dapat ditentukan:
+Controller yang dipanggil: MahasiswaController
+Method yang dijalankan: index()
+
+3. Controller:
+	Setelah Controller ditentukan, Router memanggil MahasiswaController dan menjalankan method index(). Di dalam method ini:
+		a. Controller membutuhkan data daftar mahasiswa sehingga Controller memanggil Model.
+		b. Model berinteraksi dengan database untuk mengambil data mahasiswa.
+		c. Data yang sudah diproses dan dibersihkan kemudian dikembalikan dari Model ke Controller.
+
+4. View:
+	Controller memuat file tampilan yang sesuai, misalnya views/mahasiswa/index.php.
+	Data yang diperoleh dari Model diteruskan kepada View untuk dirender dalam bentuk halaman HTML/CSS.
+
+5. Response ke Browser:
+	View menghasilkan halaman HTML berisi daftar mahasiswa.
+	Halaman tersebut kemudian diteruskan kembali melalui Controller → Front Controller → dan akhirnya ditampilkan kepada pengguna melalui browser.
