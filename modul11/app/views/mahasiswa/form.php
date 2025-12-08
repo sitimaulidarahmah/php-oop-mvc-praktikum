@@ -1,38 +1,39 @@
 <style>
+   
     .card-custom {
         max-width: 650px;
         margin: auto;
         border-radius: 18px;
-        padding: 35px 40px;
+        padding: 30px 35px;
         background: #ffffff;
         box-shadow: 0 6px 25px rgba(0,0,0,0.10);
     }
 
     .form-grid {
         display: grid;
-        grid-template-columns: 150px auto;
-        row-gap: 25px;
-        column-gap: 20px;
+        grid-template-columns: 140px auto;
+        row-gap: 18px;
+        column-gap: 18px;
         align-items: center;
     }
 
     label {
         font-weight: 600;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .form-input-wrapper {
-        max-width: 480px;
+        max-width: 360px;   /* DIPERKECIL */
         width: 100%;
     }
 
     .form-control,
     .form-select {
-        height: 50px;
-        border-radius: 10px;
-        font-size: 15px;
-        padding: 10px 15px;
-        border: 1.5px solid #ccc;
+        height: 42px;       /* DIPERKECIL */
+        border-radius: 8px;
+        font-size: 14px;    /* DIPERKECIL */
+        padding: 8px 12px;  /* DIPERKECIL */
+        border: 1.3px solid #ccc;
         transition: .2s;
         width: 100%;
     }
@@ -40,47 +41,45 @@
     .form-control:focus,
     .form-select:focus {
         border-color: #009688;
-        box-shadow: 0 0 0 3px rgba(0,150,136,0.2);
+        box-shadow: 0 0 0 2.5px rgba(0,150,136,0.18);
+    }
+
+    .btn-custom-success,
+    .btn-custom-warning {
+        padding: 10px 24px;     /* DIPERKECIL */
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        transition: .25s;
     }
 
     .btn-custom-success {
         background: #009688;
         color: white;
-        padding: 12px 28px;
-        border-radius: 12px;
-        border: none;
-        font-size: 16px;
-        font-weight: 600;
-        transition: .25s;
     }
 
     .btn-custom-warning {
         background: #f4b400;
         color: #000;
-        padding: 12px 28px;
-        border-radius: 12px;
-        border: none;
-        font-size: 16px;
-        font-weight: 600;
-        transition: .25s;
     }
 
     .btn-custom-success:hover,
     .btn-custom-warning:hover {
         opacity: .85;
-        transform: translateY(-2px);
+        transform: translateY(-1.5px);
     }
 
     .form-actions {
-        margin-left: 150px;
-        margin-top: 30px;
+        margin-left: 140px;
+        margin-top: 25px;
     }
+
+
 </style>
 
 
-<div class="container mt-5 mb-5">
-
-    <div class="card-custom">
+<div class="container mt-2 mb-4">
 
         <h4 class="fw-bold mb-4">
             <?= $data['judul']; ?>
@@ -129,7 +128,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn-custom-success me-2">Simpan</button>
-                <a href="<?= BASEURL; ?>/mahasiswa" class="btn-custom-warning">Batal</a>
+                <a href="<?= BASEURL; ?>/mahasiswa" class="btn-custom-warning">Kembali</a>
             </div>
 
         </form>

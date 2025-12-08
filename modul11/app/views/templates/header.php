@@ -71,6 +71,7 @@
             <div>
                 <a href="<?= BASEURL; ?>">Home</a>
                 <a href="<?= BASEURL; ?>/mahasiswa">Data Mahasiswa</a>
+                <a href="<?= BASEURL; ?>/matakuliah">Data Mata Kuliah</a>
                 <a href="<?= BASEURL; ?>/about">About</a>
             </div>
         </div>
