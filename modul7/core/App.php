@@ -24,7 +24,7 @@ class App
         }
 
         // Muat Controller yang benar
-        require_once '../app/' . $this->controller . '.php';
+        require_once '../app/controllers/' . $this->controller . '.php';
 
         // Buat instansi Controller
         $this->controller = new $this->controller;

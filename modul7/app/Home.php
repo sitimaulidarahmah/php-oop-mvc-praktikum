@@ -4,7 +4,7 @@
  * Controller Default: Home
  * Controller ini akan dipanggil jika tidak ada controller spesifik yang diminta di URL.
  */
-class Home
+class Home 
 {
     /**
      * Method default untuk Home Controller
@@ -15,7 +15,9 @@ class Home
         echo "<p>Anda saat ini berada di: <strong>Controller Home</strong>, Method: <strong>index()</strong>.</p>";
         echo "<p>Sistem Routing (Modul 7) sudah berhasil mendeteksi request Anda!</p>";
         echo "<p>Coba ubah URL Anda menjadi: <strong>/Home/test/parameter1/parameter2</strong></p>";
-    }
+        
+}
+    
 
     /**
      * Method untuk menguji parameter routing
